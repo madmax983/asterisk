@@ -1,0 +1,31 @@
+[package]
+name = "asterisk-app"
+description = "Asterisk: a language family that drifts while you watch, on autumn-web."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+default-run = "asterisk-app"
+
+[dependencies]
+asterisk = { path = "../asterisk" }
+anyhow = { workspace = true }
+autumn-web = { workspace = true }
+autumn-harvest = { workspace = true }
+autumn-harvest-sqlite = { workspace = true }
+rusqlite = { version = "0.40", features = ["bundled"] }
+maud = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true }
+tokio-stream = { workspace = true }
+tracing = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+autumn-web = { workspace = true, features = ["test-support"] }
+
+[lints]
+workspace = true

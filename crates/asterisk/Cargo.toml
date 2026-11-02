@@ -1,0 +1,19 @@
+[package]
+name = "asterisk"
+description = "A family of languages drifting through time: phonology, a sound-change language, and a tree of languages. No IO, no async, no clock."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+proptest = { workspace = true }
+
+[lints]
+workspace = true

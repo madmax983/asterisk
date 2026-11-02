@@ -1,0 +1,35 @@
+# Asterisk — one process, one family of languages, in memory. Nothing here is
+# persisted: see docs/adr/0001-a-world-is-a-seed-and-a-history.md.
+
+[server]
+# Loopback locally. A container would set AUTUMN_SERVER__HOST=0.0.0.0.
+host = "127.0.0.1"
+port = 3000
+
+[log]
+level = "info"
+format = "Pretty"
+
+[health]
+path = "/health"
+
+# The workbench and the clock are fetch() POSTs carrying the token from the
+# page's meta tag in an x-csrf-token header.
+[security.csrf]
+enabled = true
+
+[session]
+backend = "memory"
+allow_memory_in_production = true
+
+# Nothing durable ticks. A century is a tokio interval inside the process.
+[jobs]
+backend = "memory"
+workers = 0
+
+# Live events: one in-process broadcast topic, `family`. A message is one
+# century or one hand-typed rule; browsers refetch fragments on each, so a
+# browser that misses one only misses an animation.
+[channels]
+backend = "local"
+capacity = 256
