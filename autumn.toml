@@ -33,3 +33,9 @@ workers = 0
 [channels]
 backend = "local"
 capacity = 256
+
+# Hostnames only: the port is stripped from the request's Host before matching.
+# The release binary runs the prod profile, which does not trust loopback names
+# by default.
+[security.trusted_hosts]
+hosts = ["127.0.0.1"]
